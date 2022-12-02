@@ -7,7 +7,7 @@ public class Even {
 
     public static String[] gameEven() {
 
-        String[] gameSet = new String[4];
+        String[] gameSet = new String[3];
 
         String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         int questionNum = Engine.getRandomNum();
@@ -21,12 +21,10 @@ public class Even {
                 answer = "no";
             }
 
-        wrongAnswer = " is wrong. Correct answer was " + "'" + answer + "'";
 
         gameSet[0] = rules;
         gameSet[1] = question;
         gameSet[2] = answer;
-        gameSet[3] = wrongAnswer;
 
         return gameSet;
     }

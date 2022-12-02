@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
 
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Engine {
     public static int getRandomNum() {
         return getRandomNum(500);
     }
+
 
     public static void gameEngine(int gameNum, String userName) {
 
@@ -29,6 +31,11 @@ public class Engine {
                     gameSet[round] = Calc.gameCalc();
                 }
                 break;
+            case 4:
+                for (var round = 0; round < 3; round++) {
+                    gameSet[round] = Gcd.gameGcd();
+                }
+                break;
         }
 
         System.out.println(gameSet[0][0]);
@@ -39,8 +46,10 @@ public class Engine {
             System.out.print("Your answer: ");
             String answer = scanner.next();
             if (!answer.equals(gameSet[i][2])) {
-                System.out.println("'" + answer + "'" + gameSet[i][3]);
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameSet[i][2] + "'");
                 break;
+            } {
+                System.out.println("Correct!");
             }
 
             if (i == 2) {

@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 public class Calc {
     public static String[] gameCalc() {
-        String[] gameSet = new String[4];
+        String[] gameSet = new String[3];
 
         String rules = "What is the result of the expression?";
         int firstNum = Engine.getRandomNum(50);
@@ -27,14 +27,10 @@ public class Calc {
                 answer = Integer.toString((firstNum * secondNum));
         }
         String question = "Question: " + firstNum + " " + textFunction + " " + secondNum;
-        String wrongAnswer;
-
-        wrongAnswer = " is wrong answer ;(. Correct answer was " + "'" + answer + "'";
 
         gameSet[0] = rules;
         gameSet[1] = question;
         gameSet[2] = answer;
-        gameSet[3] = wrongAnswer;
 
         return gameSet;
     }
