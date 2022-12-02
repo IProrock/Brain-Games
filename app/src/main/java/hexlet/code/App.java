@@ -1,4 +1,6 @@
 package hexlet.code;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 public class App {
@@ -8,16 +10,16 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter the game number and press Enter"
-                + "\n1 - Greet\n2 - Even\n0 - Exit");
+                + "\n1 - Greet\n2 - Even\n3 - Calc\n0 - Exit");
         System.out.print("Your choice: ");
 
         choice = scanner.nextInt();
 
         if (choice == 1) {
             greetingNew();
-        } else if (choice ==2) {
+        } else {
             String userName = greetingNew();
-            Even.game(userName);
+            Engine.gameEngine(choice, userName);
         }
     }
 

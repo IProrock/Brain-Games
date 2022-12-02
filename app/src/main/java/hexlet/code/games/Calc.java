@@ -1,0 +1,41 @@
+package hexlet.code.games;
+
+import hexlet.code.Engine;
+
+public class Calc {
+    public static String[] gameCalc() {
+        String[] gameSet = new String[4];
+
+        String rules = "What is the result of the expression?";
+        int firstNum = Engine.getRandomNum(50);
+        int secondNum = Engine.getRandomNum(50);
+        int function = Engine.getRandomNum(3);
+        String answer = "";
+        String textFunction = "";
+
+        switch (function) {
+            case 1:
+                textFunction = "+";
+                answer = Integer.toString((firstNum + secondNum));
+                break;
+            case 2:
+                textFunction = "-";
+                answer = Integer.toString((firstNum - secondNum));
+                break;
+            case 3: case 0:
+                textFunction = "*";
+                answer = Integer.toString((firstNum * secondNum));
+        }
+        String question = "Question: " + firstNum + " " + textFunction + " " + secondNum;
+        String wrongAnswer;
+
+        wrongAnswer = " is wrong answer ;(. Correct answer was " + "'" + answer + "'";
+
+        gameSet[0] = rules;
+        gameSet[1] = question;
+        gameSet[2] = answer;
+        gameSet[3] = wrongAnswer;
+
+        return gameSet;
+    }
+}
