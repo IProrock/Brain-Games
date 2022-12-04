@@ -12,10 +12,10 @@ public class Even {
         String answer;
 
         if (questionNum % 2 == 0) {
-                answer = "yes";
-                } else {
-                answer = "no";
-            }
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
 
         gameSet[0] = rules;
         gameSet[1] = Integer.toString(questionNum);

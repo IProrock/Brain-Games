@@ -22,7 +22,7 @@ public class Calc {
                 textFunction = "-";
                 answer = Integer.toString((firstNum - secondNum));
                 break;
-            case 3: case 0:
+            default:
                 textFunction = "*";
                 answer = Integer.toString((firstNum * secondNum));
         }

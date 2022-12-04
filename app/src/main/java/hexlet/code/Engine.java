@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -43,6 +47,8 @@ public class Engine {
                 for (var round = 0; round < 3; round++) {
                     gameSet[round] = Prime.gamePrime();
                 }
+            default:
+                System.out.println("Incorrect input.");
         }
 
         System.out.println(gameSet[0][0]);
@@ -53,9 +59,9 @@ public class Engine {
             System.out.print("Your answer: ");
             String answer = scanner.next();
             if (!answer.equals(gameSet[i][2])) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameSet[i][2] + "'");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameSet[i][2] + "'.");
                 break;
-            } {
+            } else {
                 System.out.println("Correct!");
             }
 
