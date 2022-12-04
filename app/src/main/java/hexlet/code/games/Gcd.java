@@ -10,8 +10,8 @@ public class Gcd {
         String[] gameSet = new String[returnParametersQty];
 
         String rules = "Find the greatest common divisor of given numbers.";
-        int firstNum = Engine.getRandomNum();
-        int secondNum = Engine.getRandomNum();
+        int firstNum = Engine.getRandomNum() + 1;
+        int secondNum = Engine.getRandomNum() + 1;
 
         int first = Math.max(firstNum, secondNum);
         int second = Math.min(firstNum, secondNum);
