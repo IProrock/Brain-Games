@@ -6,18 +6,25 @@ import java.util.StringJoiner;
 
 public class Progression {
     public static String[] gameProgression() {
-        String[] gameSet = new String[3];
+
+        int returnParametersQty = 3;
+
+        String[] gameSet = new String[returnParametersQty];
 
         String rules = "What number is missing in the progression?";
         String question = "";
         StringJoiner questionArray = new StringJoiner(" ");
         String answer = "";
-        int questionPlusLength = Engine.getRandomNum(7);
-        int progressionDiff = Engine.getRandomNum(4) + 1;
-        int progressionCurrentValue = Engine.getRandomNum(20);
-        int secretNumPosition = Engine.getRandomNum(4 + questionPlusLength) + 1;
+        int lengthPlusLimitation = 7;
+        int questionPlusLength = Engine.getRandomNum(lengthPlusLimitation);
+        int incrementLimitation = 4;
+        int progressionDiff = Engine.getRandomNum(incrementLimitation) + 1;
+        int arrayStartPointLimitation = 20;
+        int progressionCurrentValue = Engine.getRandomNum(arrayStartPointLimitation);
+        int arrayMinLength = 5;
+        int secretNumPosition = Engine.getRandomNum(arrayMinLength - 1 + questionPlusLength) + 1;
 
-        for (int i = 1; i <= 5 + questionPlusLength; i++) {
+        for (int i = 1; i <= arrayMinLength + questionPlusLength; i++) {
             if (i == secretNumPosition) {
                 questionArray.add("..");
                 answer = Integer.toString(progressionCurrentValue);

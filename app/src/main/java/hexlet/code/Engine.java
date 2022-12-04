@@ -15,36 +15,40 @@ public class Engine {
     }
 
     public static int getRandomNum() {
-        return getRandomNum(500);
+        int stdMaxLimit = 500;
+        return getRandomNum(stdMaxLimit);
     }
 
 
     public static void gameEngine(int gameNum, String userName) {
 
-        String[][] gameSet = new String[3][4];
+        int numberOfRounds = 3;
+        int gameParameters = 3;
+
+        String[][] gameSet = new String[numberOfRounds][gameParameters];
         switch (gameNum) {
             case 2:
-                for (var round = 0; round < 3; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Even.gameEven();
                 }
                 break;
             case 3:
-                for (var round = 0; round < 3; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Calc.gameCalc();
                 }
                 break;
             case 4:
-                for (var round = 0; round < 3; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Gcd.gameGcd();
                 }
                 break;
             case 5:
-                for (var round = 0; round < 3; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Progression.gameProgression();
                 }
                 break;
             case 6:
-                for (var round = 0; round < 3; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Prime.gamePrime();
                 }
             default:
@@ -53,7 +57,7 @@ public class Engine {
 
         System.out.println(gameSet[0][0]);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < numberOfRounds; i++) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Question: " + gameSet[i][1]);
             System.out.print("Your answer: ");

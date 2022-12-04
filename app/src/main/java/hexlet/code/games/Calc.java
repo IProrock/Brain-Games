@@ -4,12 +4,16 @@ import hexlet.code.Engine;
 
 public class Calc {
     public static String[] gameCalc() {
-        String[] gameSet = new String[3];
+
+        int returnParametersQty = 3;
+        String[] gameSet = new String[returnParametersQty];
 
         String rules = "What is the result of the expression?";
-        int firstNum = Engine.getRandomNum(50);
-        int secondNum = Engine.getRandomNum(50);
-        int function = Engine.getRandomNum(3);
+        int numMaxLimitation = 50;
+        int possibleFunctionsQty = 3; // + or - or *
+        int firstNum = Engine.getRandomNum(numMaxLimitation);
+        int secondNum = Engine.getRandomNum(numMaxLimitation);
+        int function = Engine.getRandomNum(possibleFunctionsQty);
         String answer = "";
         String textFunction = "";
 
