@@ -5,16 +5,16 @@ import hexlet.code.Engine;
 public class Calc {
     public static String[] gameCalc() {
 
-        final int NUM_MAX_LIMITATION = 50;
-        final int POSSIBLE_FUNCTIONS_QTY = 3; // + or - or *
-        final int RETURN_PARAMETERS_QTY = 3;
+        final int numMaxLimitation = 50;
+        final int possibleFunctionsQty = 3; // + or - or *
+        final int returnParametersQty = 3;
 
-        String[] gameSet = new String[RETURN_PARAMETERS_QTY];
+        String[] gameSet = new String[returnParametersQty];
 
         String rules = "What is the result of the expression?";
-        int firstNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
-        int secondNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
-        int function = Engine.getRandomNum(POSSIBLE_FUNCTIONS_QTY);
+        int firstNum = Engine.getRandomNum(numMaxLimitation);
+        int secondNum = Engine.getRandomNum(numMaxLimitation);
+        int function = Engine.getRandomNum(possibleFunctionsQty);
         String answer = "";
         String textFunction = "";
 

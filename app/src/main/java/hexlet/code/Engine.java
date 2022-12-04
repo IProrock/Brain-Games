@@ -24,33 +24,33 @@ public class Engine {
 
     public static void gameEngine(int gameNum, String userName) {
 
-        final int NUMBER_OF_ROUNDS = 3;
-        final int GAME_PARAMETERS_QTY = 3;
+        final int numberOfRounds = 3;
+        final int gameParametersQty = 3;
 
-        String[][] gameSet = new String[NUMBER_OF_ROUNDS][GAME_PARAMETERS_QTY];
+        String[][] gameSet = new String[numberOfRounds][gameParametersQty];
         switch (gameNum) {
             case 2:
-                for (var round = 0; round < NUMBER_OF_ROUNDS; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Even.gameEven();
                 }
                 break;
             case 3:
-                for (var round = 0; round < NUMBER_OF_ROUNDS; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Calc.gameCalc();
                 }
                 break;
             case 4:
-                for (var round = 0; round < NUMBER_OF_ROUNDS; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Gcd.gameGcd();
                 }
                 break;
             case 5:
-                for (var round = 0; round < NUMBER_OF_ROUNDS; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Progression.gameProgression();
                 }
                 break;
             case 6:
-                for (var round = 0; round < NUMBER_OF_ROUNDS; round++) {
+                for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Prime.gamePrime();
                 }
             default:
@@ -59,7 +59,7 @@ public class Engine {
 
         System.out.println(gameSet[0][0]);
 
-        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
+        for (var i = 0; i < numberOfRounds; i++) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Question: " + gameSet[i][1]);
             System.out.print("Your answer: ");
