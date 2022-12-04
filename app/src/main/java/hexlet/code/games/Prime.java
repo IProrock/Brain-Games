@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static String[] gamePrime() {
-        final int RETURNPARAMETERSQTY = 3;
-        String[] gameSet = new String[RETURNPARAMETERSQTY];
+        final int RETURN_PARAMETERS_QTY = 3;
+        String[] gameSet = new String[RETURN_PARAMETERS_QTY];
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String question = "";
         String answer = "";

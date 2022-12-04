@@ -5,15 +5,15 @@ import hexlet.code.Engine;
 public class Calc {
     public static String[] gameCalc() {
 
-        int RETURNPARAMETERSQTY = 3;
-        String[] gameSet = new String[RETURNPARAMETERSQTY];
+        final int RETURN_PARAMETERS_QTY = 3;
+        String[] gameSet = new String[RETURN_PARAMETERS_QTY];
 
         String rules = "What is the result of the expression?";
-        int NUMMAXLIMITATION = 50;
-        int POSSIBLEFUNCTIONSQTY = 3; // + or - or *
-        int firstNum = Engine.getRandomNum(NUMMAXLIMITATION);
-        int secondNum = Engine.getRandomNum(NUMMAXLIMITATION);
-        int function = Engine.getRandomNum(POSSIBLEFUNCTIONSQTY);
+        final int NUM_MAX_LIMITATION = 50;
+        final int POSSIBLE_FUNCTIONS_QTY = 3; // + or - or *
+        int firstNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
+        int secondNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
+        int function = Engine.getRandomNum(POSSIBLE_FUNCTIONS_QTY);
         String answer = "";
         String textFunction = "";
 

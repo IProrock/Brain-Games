@@ -7,9 +7,9 @@ import java.util.StringJoiner;
 public class Progression {
     public static String[] gameProgression() {
 
-        final int RETURNPARAMETERSQTY = 3;
+        final int RETURN_PARAMETERS_QTY = 3;
 
-        String[] gameSet = new String[RETURNPARAMETERSQTY];
+        String[] gameSet = new String[RETURN_PARAMETERS_QTY];
 
         String rules = "What number is missing in the progression?";
         String question = "";
