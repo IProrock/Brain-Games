@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -42,6 +39,10 @@ public class Engine {
                     gameSet[round] = Progression.gameProgression();
                 }
                 break;
+            case 6:
+                for (var round = 0; round < 3; round++) {
+                    gameSet[round] = Prime.gamePrime();
+                }
         }
 
         System.out.println(gameSet[0][0]);
