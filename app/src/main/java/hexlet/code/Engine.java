@@ -16,9 +16,9 @@ public class Engine {
 
     public static int getRandomNum() {
 
-        final int STD_MAX_VALUE = 500;
+        final int stdMaxValue = 500;
 
-        return getRandomNum(STD_MAX_VALUE);
+        return getRandomNum(stdMaxValue);
     }
 
 
@@ -26,30 +26,35 @@ public class Engine {
 
         final int numberOfRounds = 3;
         final int gameParametersQty = 3;
+        final int evenGame = 2;
+        final int calcGame = 3;
+        final int gcdGame = 4;
+        final int progressionGame = 5;
+        final int primeGame = 6;
 
         String[][] gameSet = new String[numberOfRounds][gameParametersQty];
         switch (gameNum) {
-            case 2:
+            case evenGame:
                 for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Even.gameEven();
                 }
                 break;
-            case 3:
+            case calcGame:
                 for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Calc.gameCalc();
                 }
                 break;
-            case 4:
+            case gcdGame:
                 for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Gcd.gameGcd();
                 }
                 break;
-            case 5:
+            case progressionGame:
                 for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Progression.gameProgression();
                 }
                 break;
-            case 6:
+            case primeGame:
                 for (var round = 0; round < numberOfRounds; round++) {
                     gameSet[round] = Prime.gamePrime();
                 }
