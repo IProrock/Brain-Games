@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -36,13 +37,18 @@ public class Engine {
                     gameSet[round] = Gcd.gameGcd();
                 }
                 break;
+            case 5:
+                for (var round = 0; round < 3; round++) {
+                    gameSet[round] = Progression.gameProgression();
+                }
+                break;
         }
 
         System.out.println(gameSet[0][0]);
 
         for (var i = 0; i < 3; i++) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(gameSet[i][1]);
+            System.out.println("Question: " + gameSet[i][1]);
             System.out.print("Your answer: ");
             String answer = scanner.next();
             if (!answer.equals(gameSet[i][2])) {

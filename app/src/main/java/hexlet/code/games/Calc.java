@@ -26,7 +26,7 @@ public class Calc {
                 textFunction = "*";
                 answer = Integer.toString((firstNum * secondNum));
         }
-        String question = "Question: " + firstNum + " " + textFunction + " " + secondNum;
+        String question = firstNum + " " + textFunction + " " + secondNum;
 
         gameSet[0] = rules;
         gameSet[1] = question;
