@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Gcd {
     public static String[] gameGcd() {
 
-        static final int RETURNPARAMETERSQTY = 3;
+        final int RETURNPARAMETERSQTY = 3;
 
         String[] gameSet = new String[RETURNPARAMETERSQTY];
 

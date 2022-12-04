@@ -7,7 +7,7 @@ import java.util.StringJoiner;
 public class Progression {
     public static String[] gameProgression() {
 
-        static final int RETURNPARAMETERSQTY = 3;
+        final int RETURNPARAMETERSQTY = 3;
 
         String[] gameSet = new String[RETURNPARAMETERSQTY];
 
@@ -15,13 +15,13 @@ public class Progression {
         String question = "";
         StringJoiner questionArray = new StringJoiner(" ");
         String answer = "";
-        static final int LENGTHPLUSLIMITATION = 7;
+        final int LENGTHPLUSLIMITATION = 7;
         int questionPlusLength = Engine.getRandomNum(LENGTHPLUSLIMITATION);
-        static final int INCRINMENTLIMITATION = 4;
+        final int INCRINMENTLIMITATION = 4;
         int progressionDiff = Engine.getRandomNum(INCRINMENTLIMITATION) + 1;
-        static final int ARRAYSTARTPOINTLIMITATION = 20;
+        final int ARRAYSTARTPOINTLIMITATION = 20;
         int progressionCurrentValue = Engine.getRandomNum(ARRAYSTARTPOINTLIMITATION);
-        static final int ARRAYMINLENGTH = 5;
+        final int ARRAYMINLENGTH = 5;
         int secretNumPosition = Engine.getRandomNum(ARRAYMINLENGTH - 1 + questionPlusLength) + 1;
 
         for (int i = 1; i <= ARRAYMINLENGTH + questionPlusLength; i++) {
