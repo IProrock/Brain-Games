@@ -5,12 +5,13 @@ import hexlet.code.Engine;
 public class Calc {
     public static String[] gameCalc() {
 
+        final int NUM_MAX_LIMITATION = 50;
+        final int POSSIBLE_FUNCTIONS_QTY = 3; // + or - or *
         final int RETURN_PARAMETERS_QTY = 3;
+
         String[] gameSet = new String[RETURN_PARAMETERS_QTY];
 
         String rules = "What is the result of the expression?";
-        final int NUM_MAX_LIMITATION = 50;
-        final int POSSIBLE_FUNCTIONS_QTY = 3; // + or - or *
         int firstNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
         int secondNum = Engine.getRandomNum(NUM_MAX_LIMITATION);
         int function = Engine.getRandomNum(POSSIBLE_FUNCTIONS_QTY);

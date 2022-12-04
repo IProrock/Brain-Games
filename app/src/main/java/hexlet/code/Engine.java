@@ -15,8 +15,10 @@ public class Engine {
     }
 
     public static int getRandomNum() {
-        int STDMAXVALUE = 500;
-        return getRandomNum(STDMAXVALUE);
+
+        final int STD_MAX_VALUE = 500;
+
+        return getRandomNum(STD_MAX_VALUE);
     }
 
 
