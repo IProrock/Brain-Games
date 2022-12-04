@@ -60,6 +60,7 @@ public class Engine {
             String answer = scanner.next();
             if (!answer.equals(gameSet[i][2])) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameSet[i][2] + "'.");
+                System.out.println("Let's try again, " + userName + "!");
                 break;
             } else {
                 System.out.println("Correct!");
