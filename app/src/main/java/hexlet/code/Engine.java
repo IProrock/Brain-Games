@@ -6,6 +6,7 @@ import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
