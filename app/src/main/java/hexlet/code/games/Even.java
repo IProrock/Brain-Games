@@ -5,9 +5,9 @@ public class Even {
 
     public static String[] gameEven() {
 
-        int returnParametersQty = 3;
+        int RETURNPARAMETERSQTY = 3;
 
-        String[] gameSet = new String[returnParametersQty];
+        String[] gameSet = new String[RETURNPARAMETERSQTY];
 
         String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         int questionNum = Engine.getRandomNum();

@@ -6,7 +6,6 @@ import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -16,40 +15,40 @@ public class Engine {
     }
 
     public static int getRandomNum() {
-        int stdMaxLimit = 500;
-        return getRandomNum(stdMaxLimit);
+        int STDMAXVALUE = 500;
+        return getRandomNum(STDMAXVALUE);
     }
 
 
     public static void gameEngine(int gameNum, String userName) {
 
-        int numberOfRounds = 3;
-        int gameParameters = 3;
+        int NUMBEROFROUNDS = 3;
+        int GAMEPARAMETERSQTY = 3;
 
-        String[][] gameSet = new String[numberOfRounds][gameParameters];
+        String[][] gameSet = new String[NUMBEROFROUNDS][GAMEPARAMETERSQTY];
         switch (gameNum) {
             case 2:
-                for (var round = 0; round < numberOfRounds; round++) {
+                for (var round = 0; round < NUMBEROFROUNDS; round++) {
                     gameSet[round] = Even.gameEven();
                 }
                 break;
             case 3:
-                for (var round = 0; round < numberOfRounds; round++) {
+                for (var round = 0; round < NUMBEROFROUNDS; round++) {
                     gameSet[round] = Calc.gameCalc();
                 }
                 break;
             case 4:
-                for (var round = 0; round < numberOfRounds; round++) {
+                for (var round = 0; round < NUMBEROFROUNDS; round++) {
                     gameSet[round] = Gcd.gameGcd();
                 }
                 break;
             case 5:
-                for (var round = 0; round < numberOfRounds; round++) {
+                for (var round = 0; round < NUMBEROFROUNDS; round++) {
                     gameSet[round] = Progression.gameProgression();
                 }
                 break;
             case 6:
-                for (var round = 0; round < numberOfRounds; round++) {
+                for (var round = 0; round < NUMBEROFROUNDS; round++) {
                     gameSet[round] = Prime.gamePrime();
                 }
             default:
@@ -58,7 +57,7 @@ public class Engine {
 
         System.out.println(gameSet[0][0]);
 
-        for (var i = 0; i < numberOfRounds; i++) {
+        for (var i = 0; i < NUMBEROFROUNDS; i++) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Question: " + gameSet[i][1]);
             System.out.print("Your answer: ");
