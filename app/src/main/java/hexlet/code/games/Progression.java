@@ -1,47 +1,53 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.StringJoiner;
 
 public class Progression {
-    public static String[] gameProgression() {
+    public static void gameProgression() {
 
         final int returnParametersQty = 3;
+        final int gameRoundCount = 3;
         final int lengthPlusLimitation = 7;
         final int incrinmentLimitation = 4;
         final int arrayMinLength = 5;
         final int arrayStartpointLimitation = 20;
+        final String rules = "What number is missing in the progression?";
 
-
-        String[] gameSet = new String[returnParametersQty];
-
-        String rules = "What number is missing in the progression?";
+        String[][] gameSet = new String[gameRoundCount][returnParametersQty];
         String question = "";
-        StringJoiner questionArray = new StringJoiner(" ");
-        String answer = "";
-        int questionPlusLength = Engine.getRandomNum(lengthPlusLimitation);
-        int progressionDiff = Engine.getRandomNum(incrinmentLimitation) + 1;
-        int progressionCurrentValue = Engine.getRandomNum(arrayStartpointLimitation);
-        int secretNumPosition = Engine.getRandomNum(arrayMinLength - 1 + questionPlusLength) + 1;
 
-        for (int i = 1; i <= arrayMinLength + questionPlusLength; i++) {
-            if (i == secretNumPosition) {
-                questionArray.add("..");
-                answer = Integer.toString(progressionCurrentValue);
-            } else {
-                questionArray.add(Integer.toString(progressionCurrentValue));
+        String answer = "";
+
+        for (var n = 0; n < gameRoundCount; n++) {
+
+            StringJoiner questionArray = new StringJoiner(" ");
+            int questionPlusLength = Utils.getRandomNum(0, lengthPlusLimitation);
+            int progressionDiff = Utils.getRandomNum(1, incrinmentLimitation);
+            int progressionCurrentValue = Utils.getRandomNum(0, arrayStartpointLimitation);
+            int secretNumPosition = Utils.getRandomNum(1, arrayMinLength + questionPlusLength);
+
+            for (int i = 1; i <= arrayMinLength + questionPlusLength; i++) {
+
+                if (i == secretNumPosition) {
+                    questionArray.add("..");
+                    answer = Integer.toString(progressionCurrentValue);
+                } else {
+                    questionArray.add(Integer.toString(progressionCurrentValue));
+                }
+                progressionCurrentValue = progressionCurrentValue + progressionDiff;
             }
-            progressionCurrentValue = progressionCurrentValue + progressionDiff;
+
+            question = questionArray.toString();
+
+            gameSet[n][0] = rules;
+            gameSet[n][1] = question;
+            gameSet[n][2] = answer;
         }
 
-        question = questionArray.toString();
-
-        gameSet[0] = rules;
-        gameSet[1] = question;
-        gameSet[2] = answer;
-
-        return gameSet;
+        Engine.gameEngine(gameSet);
 
     }
 }
