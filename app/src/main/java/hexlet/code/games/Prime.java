@@ -4,36 +4,43 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    public static void gamePrime() {
+    private static final int NUM_MIN_LIMITATION = 2;
+    private static final int NUM_MAX_LIMITATION = 50;
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int NUMBER_OF_ROUNDS = Engine.NUMBER_OF_ROUNDS;
 
-        final int returnParametersQty = 3;
-        final int gameRoundCount = 3;
-        final int numMinLimitation = 2;
-        final int numMaxLimitation = 50;
-        final String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        String[][] gameSet = new String[gameRoundCount][returnParametersQty];
+    public static void runGame() {
 
-        for (var n = 0; n < gameRoundCount; n++) {
+        String[][] gameSet = new String[NUMBER_OF_ROUNDS][1];
 
-            String question = "";
-            String answer = "yes";
-            int currentValue = Utils.getRandomNum(numMinLimitation, numMaxLimitation);
-            question = Integer.toString(currentValue);
-
-            for (var i = 2; i <= (int) Math.sqrt(currentValue); i++) {
-                if (currentValue % i == 0 && currentValue != 2) {
-                    answer = "no";
-                    break;
-                }
-            }
-
-            gameSet[n][0] = rules;
-            gameSet[n][1] = question;
-            gameSet[n][2] = answer;
+        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            gameSet[i] = generateRoundData();
         }
 
-        Engine.gameEngine(gameSet);
+        Engine.buildGame(gameSet, RULES);
+    }
 
+
+    public static String[] generateRoundData() {
+
+        int currentValue = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
+        String question = Integer.toString(currentValue);
+        String answer = isPrime(currentValue) ? "yes" : "no";
+
+        return new String[] {question, answer};
+    }
+
+    private static boolean isPrime(int currentValue) {
+        boolean isPrime = true;
+
+        for (var i = 2; i <= (int) Math.sqrt(currentValue); i++) {
+            if (currentValue % i == 0 && currentValue != 2) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        return isPrime;
     }
 }

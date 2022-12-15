@@ -3,32 +3,33 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Even {
+    private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int NUM_MIN_LIMITATION = 0;
+    private static final int NUM_MAX_LIMITATION = 500;
+    private static final int NUMBER_OF_ROUNDS = Engine.NUMBER_OF_ROUNDS;
 
-    public static void gameEven() {
 
-        final int returnParametersCount = 3;
-        final int gameRoundCount = 3;
-        final int numMinLimitation = 0;
-        final int numMaxLimitation = 500;
-        final String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static void runGame() {
 
-        String[][] gameSet = new String[gameRoundCount][returnParametersCount];
-        String answer = "";
+        String[][] gameSet = new String[NUMBER_OF_ROUNDS][1];
 
-        for (var i = 0; i < gameRoundCount; i++) {
-
-            int questionNum = Utils.getRandomNum(numMinLimitation, numMaxLimitation);
-            answer = isEven(questionNum) ? "yes" : "no";
-
-            gameSet[i][0] = rules;
-            gameSet[i][1] = Integer.toString(questionNum);
-            gameSet[i][2] = answer;
+        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            gameSet[i] = generateRoundData();
         }
 
-        Engine.gameEngine(gameSet);
+        Engine.buildGame(gameSet, RULES);
     }
 
-    public static boolean isEven(int num) {
+
+    private static String[] generateRoundData() {
+        int questionNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
+        String answer = isEven(questionNum) ? "yes" : "no";
+
+        return new String[] {Integer.toString(questionNum), answer};
+    }
+
+
+    private static boolean isEven(int num) {
         return num % 2 == 0;
     }
 }

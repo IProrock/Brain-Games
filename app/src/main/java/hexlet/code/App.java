@@ -11,14 +11,14 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        final int greeting = 1;
-        final int evenGame = 2;
-        final int calcGame = 3;
-        final int gcdGame = 4;
-        final int progressionGame = 5;
-        final int primeGame = 6;
+        final String greeting = "1";
+        final String evenGame = "2";
+        final String calcGame = "3";
+        final String gcdGame = "4";
+        final String progressionGame = "5";
+        final String primeGame = "6";
 
-        int choice;
+        String choice;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("""
@@ -33,31 +33,32 @@ public class App {
                 """);
         System.out.print("Your choice: ");
 
-        choice = scanner.nextInt();
+        choice = scanner.next();
 
         switch (choice) {
+            case "0":
+                break;
             case greeting:
-                Engine.greeting();
+                Cli.greeting();
                 break;
             case evenGame:
-                Even.gameEven();
+                Even.runGame();
                 break;
             case calcGame:
-                Calc.gameCalc();
+                Calc.runGame();
                 break;
             case gcdGame:
-                Gcd.gameGcd();
+                Gcd.runGame();
                 break;
             case progressionGame:
-                Progression.gameProgression();
+                Progression.runGame();
                 break;
             case primeGame:
-                Prime.gamePrime();
+                Prime.runGame();
                 break;
             default:
-
+                System.out.println("Incorrect input. Please restart the game.");
         }
-
+        scanner.close();
     }
-
 }

@@ -5,44 +5,50 @@ import hexlet.code.Utils;
 
 public class Calc {
 
-    public static void gameCalc() {
+    private static final String RULES = "What is the result of the expression?";
+    private static final int NUM_MIN_LIMITATION = 0;
+    private static final int NUM_MAX_LIMITATION = 50;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int NUMBER_OF_ROUNDS = Engine.NUMBER_OF_ROUNDS;
 
-        final int numMinLimitation = 0;
-        final int numMaxLimitation = 50;
-        final int possibleFunctionsQty = 3; // + or - or *
-        final int returnParametersQty = 3;
-        final int gameRoundCount = 3;
-        final String rules = "What is the result of the expression?";
 
-        String[][] gameSet = new String[gameRoundCount][returnParametersQty];
-        String answer = "";
-        String textFunction = "";
+    public static void runGame() {
 
-        for (var i = 0; i < gameRoundCount; i++) {
-            int firstNum = Utils.getRandomNum(numMinLimitation, numMaxLimitation);
-            int secondNum = Utils.getRandomNum(numMinLimitation, numMaxLimitation);
-            int function = Utils.getRandomNum(0, possibleFunctionsQty);
+        String[][] gameSet = new String[NUMBER_OF_ROUNDS][1];
 
-            switch (function) {
-                case 1:
-                    textFunction = "+";
-                    answer = Integer.toString((firstNum + secondNum));
-                    break;
-                case 2:
-                    textFunction = "-";
-                    answer = Integer.toString((firstNum - secondNum));
-                    break;
-                default:
-                    textFunction = "*";
-                    answer = Integer.toString((firstNum * secondNum));
-            }
-            String question = firstNum + " " + textFunction + " " + secondNum;
-
-            gameSet[i][0] = rules;
-            gameSet[i][1] = question;
-            gameSet[i][2] = answer;
+        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            gameSet[i] = generateRoundData();
         }
 
-        Engine.gameEngine(gameSet);
+        Engine.buildGame(gameSet, RULES);
+    }
+
+
+    private static String[] generateRoundData() {
+
+        int firstNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
+        int secondNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
+        char operator = OPERATORS[Utils.getRandomNum(0, OPERATORS.length - 1)];
+
+        String question = firstNum + " " + operator + " " + secondNum;
+        String answer = calculate(firstNum, secondNum, operator);
+
+        return new String[] {question, answer};
+    }
+
+
+    private static String calculate(int firstNum, int secondNum, char operator) {
+
+        switch (operator) {
+            case '+':
+                return Integer.toString(firstNum + secondNum);
+
+            case '-':
+                return Integer.toString(firstNum - secondNum);
+
+            default:
+                return Integer.toString(firstNum * secondNum);
+
+        }
     }
 }

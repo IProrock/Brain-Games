@@ -4,38 +4,38 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void gameEngine(String[][] gameData) {
+    public static final int NUMBER_OF_ROUNDS = 3;
 
-        final int numberOfRounds = 3;
 
-        String[][] gameSet = gameData;
+    public static void buildGame(String[][] gameData, String rules) {
+
         Scanner scanner = new Scanner(System.in);
         String userName = greeting();
 
-        System.out.println(gameSet[0][0]);
+        System.out.println(rules);
 
-        for (var i = 0; i < numberOfRounds; i++) {
+        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
 
-            System.out.println("Question: " + gameSet[i][1]);
+            System.out.println("Question: " + gameData[i][0]);
             System.out.print("Your answer: ");
             String answer = scanner.next();
 
-            if (!answer.equals(gameSet[i][2])) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameSet[i][2] + "'.");
+            if (!answer.equals(gameData[i][1])) {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameData[i][1] + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                break;
+                return;
 
             } else {
                 System.out.println("Correct!");
             }
-
-            if (i == 2) {
-                System.out.println("Congratulations, " + userName + "!");
-            }
         }
+        scanner.close();
+
+        System.out.println("Congratulations, " + userName + "!");
+
     }
 
-    public static String greeting() {
+    private static String greeting() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
