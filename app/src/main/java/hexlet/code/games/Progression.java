@@ -26,26 +26,35 @@ public class Progression {
     private static String[] generateRoundData() {
 
         final int arrayLengthPlusLimitation = 7;
-        final int numIncrinmentLimitation = 4;
+        final int incrinmentLimitation = 4;
         final int arrayMinLength = 5;
-        final int arrayStartpointLimitation = 20;
+        final int arrayStartPointLimitation = 20;
+
+        int arrayAdditionalLength = Utils.getRandomNum(0, arrayLengthPlusLimitation);
+
+        int firstElement = Utils.getRandomNum(0, arrayStartPointLimitation);
+        int arrayLength = arrayMinLength + arrayAdditionalLength;
+        int increment = Utils.getRandomNum(1, incrinmentLimitation);
+        int hiddenElementPosition = Utils.getRandomNum(1, arrayLength);
+
+        return makeProgression(firstElement, arrayLength, increment, hiddenElementPosition);
+    }
+
+
+    private static String[] makeProgression(int firstElement, int arrayLength, int increment, int hiddenElement) {
 
         StringJoiner questionArray = new StringJoiner(" ");
-        int questionPlusLength = Utils.getRandomNum(0, arrayLengthPlusLimitation);
-        int progressionDiff = Utils.getRandomNum(1, numIncrinmentLimitation);
-        int progressionCurrentValue = Utils.getRandomNum(0, arrayStartpointLimitation);
-        int secretNumPosition = Utils.getRandomNum(1, arrayMinLength + questionPlusLength);
         String answer = "";
 
-        for (int i = 1; i <= arrayMinLength + questionPlusLength; i++) {
+        for (int i = 1; i <= arrayLength; i++) {
 
-            if (i == secretNumPosition) {
+            if (i == hiddenElement) {
                 questionArray.add("..");
-                answer = Integer.toString(progressionCurrentValue);
+                answer = Integer.toString(firstElement);
             } else {
-                questionArray.add(Integer.toString(progressionCurrentValue));
+                questionArray.add(Integer.toString(firstElement));
             }
-            progressionCurrentValue = progressionCurrentValue + progressionDiff;
+            firstElement = firstElement + increment;
         }
 
         String question = questionArray.toString();
