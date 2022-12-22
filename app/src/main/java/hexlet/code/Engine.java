@@ -7,7 +7,7 @@ public class Engine {
     public static final int NUMBER_OF_ROUNDS = 3;
 
 
-    public static void buildGame(String[][] gameData, String rules) {
+    public static void run(String[][] gameData, String rules) {
 
         Scanner scanner = new Scanner(System.in);
         String userName = greeting();

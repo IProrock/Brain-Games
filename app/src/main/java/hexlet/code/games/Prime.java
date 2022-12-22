@@ -18,7 +18,7 @@ public class Prime {
             gameSet[i] = generateRoundData();
         }
 
-        Engine.buildGame(gameSet, RULES);
+        Engine.run(gameSet, RULES);
     }
 
 
@@ -31,16 +31,14 @@ public class Prime {
         return new String[] {question, answer};
     }
 
+
     private static boolean isPrime(int currentValue) {
-        boolean isPrime = true;
 
         for (var i = 2; i <= (int) Math.sqrt(currentValue); i++) {
             if (currentValue % i == 0 && currentValue != 2) {
-                isPrime = false;
-                break;
+                return false;
             }
         }
-
-        return isPrime;
+        return true;
     }
 }

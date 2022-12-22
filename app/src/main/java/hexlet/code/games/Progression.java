@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
 import java.util.StringJoiner;
 
 public class Progression {
@@ -19,7 +18,7 @@ public class Progression {
             gameSet[i] = generateRoundData();
         }
 
-        Engine.buildGame(gameSet, RULES);
+        Engine.run(gameSet, RULES);
     }
 
 
@@ -31,35 +30,37 @@ public class Progression {
         final int arrayStartPointLimitation = 20;
 
         int arrayAdditionalLength = Utils.getRandomNum(0, arrayLengthPlusLimitation);
-
         int firstElement = Utils.getRandomNum(0, arrayStartPointLimitation);
         int arrayLength = arrayMinLength + arrayAdditionalLength;
         int increment = Utils.getRandomNum(1, incrinmentLimitation);
-        int hiddenElementPosition = Utils.getRandomNum(1, arrayLength);
+        int hiddenElementPosition = Utils.getRandomNum(0, arrayLength - 1);
+        StringJoiner question = new StringJoiner(" ");
 
-        return makeProgression(firstElement, arrayLength, increment, hiddenElementPosition);
-    }
-
-
-    private static String[] makeProgression(int firstElement, int arrayLength, int increment, int hiddenElement) {
-
-        StringJoiner questionArray = new StringJoiner(" ");
-        String answer = "";
-
-        for (int i = 1; i <= arrayLength; i++) {
-
-            if (i == hiddenElement) {
-                questionArray.add("..");
-                answer = Integer.toString(firstElement);
-            } else {
-                questionArray.add(Integer.toString(firstElement));
-            }
-            firstElement = firstElement + increment;
+        String[] progression =  makeProgression(firstElement, arrayLength, increment);
+        String answer = progression[hiddenElementPosition];
+        progression[hiddenElementPosition] = "..";
+        for (String element : progression) {
+            question.add(element);
         }
 
-        String question = questionArray.toString();
+        return new String[] {question.toString(), answer};
 
-        return new String[] {question, answer};
     }
+
+
+    private static String[] makeProgression(int firstElement, int arrayLength, int increment) {
+
+        String[] progression = new String[arrayLength];
+        int currentElement = firstElement;
+
+        for (int i = 0; i < arrayLength; i++) {
+            progression[i] = Integer.toString(currentElement);
+            currentElement = currentElement + increment;
+        }
+
+        return progression;
+    }
+
+
 }
 

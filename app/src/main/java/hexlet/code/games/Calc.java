@@ -20,7 +20,7 @@ public class Calc {
             gameSet[i] = generateRoundData();
         }
 
-        Engine.buildGame(gameSet, RULES);
+        Engine.run(gameSet, RULES);
     }
 
 
