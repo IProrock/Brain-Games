@@ -16,28 +16,31 @@ public class Calc {
 
         String[][] gameSet = new String[NUMBER_OF_ROUNDS][1];
 
-        for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            gameSet[i] = generateRoundData();
+        try {
+            for (var i = 0; i < NUMBER_OF_ROUNDS; i++) {
+                gameSet[i] = generateRoundData();
+            }
+            Engine.run(gameSet, RULES);
+        } catch (Exception e) {
+            System.out.println("Calc game internal error\n Method calculate: " + e.getMessage());
         }
-
-        Engine.run(gameSet, RULES);
     }
 
-
-    private static String[] generateRoundData() {
+    private static String[] generateRoundData() throws Exception {
 
         int firstNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
         int secondNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
         char operator = OPERATORS[Utils.getRandomNum(0, OPERATORS.length - 1)];
+        String answer = null;
 
         String question = firstNum + " " + operator + " " + secondNum;
-        String answer = calculate(firstNum, secondNum, operator);
+        answer = calculate(firstNum, secondNum, operator);
 
         return new String[] {question, answer};
     }
 
 
-    private static String calculate(int firstNum, int secondNum, char operator) {
+    private static String calculate(int firstNum, int secondNum, char operator) throws Exception {
 
         switch (operator) {
             case '+':
@@ -46,8 +49,11 @@ public class Calc {
             case '-':
                 return Integer.toString(firstNum - secondNum);
 
+            case '*':
+                return Integer.toString( firstNum * secondNum);
+
             default:
-                return Integer.toString(firstNum * secondNum);
+                throw new Exception(String.format("Operator \"" + operator + "\" is not valid."));
 
         }
     }

@@ -34,6 +34,10 @@ public class Prime {
 
     private static boolean isPrime(int currentValue) {
 
+        if (currentValue < 2) {
+            return false;
+        }
+
         for (var i = 2; i <= (int) Math.sqrt(currentValue); i++) {
             if (currentValue % i == 0 && currentValue != 2) {
                 return false;

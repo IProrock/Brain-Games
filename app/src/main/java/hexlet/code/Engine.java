@@ -10,7 +10,10 @@ public class Engine {
     public static void run(String[][] gameData, String rules) {
 
         Scanner scanner = new Scanner(System.in);
-        String userName = greeting();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
 
         System.out.println(rules);
 
@@ -33,17 +36,6 @@ public class Engine {
 
         System.out.println("Congratulations, " + userName + "!");
 
-    }
-
-    private static String greeting() {
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-
-        return userName;
     }
 }
 
