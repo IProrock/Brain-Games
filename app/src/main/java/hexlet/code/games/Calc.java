@@ -31,10 +31,9 @@ public class Calc {
         int firstNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
         int secondNum = Utils.getRandomNum(NUM_MIN_LIMITATION, NUM_MAX_LIMITATION);
         char operator = OPERATORS[Utils.getRandomNum(0, OPERATORS.length - 1)];
-        String answer = null;
 
         String question = firstNum + " " + operator + " " + secondNum;
-        answer = calculate(firstNum, secondNum, operator);
+        String answer = calculate(firstNum, secondNum, operator);
 
         return new String[] {question, answer};
     }
@@ -50,7 +49,7 @@ public class Calc {
                 return Integer.toString(firstNum - secondNum);
 
             case '*':
-                return Integer.toString( firstNum * secondNum);
+                return Integer.toString(firstNum * secondNum);
 
             default:
                 throw new Exception(String.format("Operator \"" + operator + "\" is not valid."));
